@@ -1,9 +1,9 @@
 import { useState } from "react"
-import btnStyles from "../ButtonComponent/ButtonComponent.module.css"
-import displayStyles from "../ButtonComponent/DisplayOutputComponent.module.css"
-import calculatorStyles from "./CalculatorComponent.module.css"
+
+import calculatorStyles from "./CalculatorComponent.module.scss"
 
 export default function CalculatorComponent() {
+	// или лучше через {id:'+',value:'+'} ?
 	const buttons = [
 		"1",
 		"2",
@@ -26,7 +26,7 @@ export default function CalculatorComponent() {
 	let buttonElems = buttons.map((button) => (
 		<button
 			key={button} //а не лучше ли все-таки делать данные в виде {id:'+',value:'+'}? чтобы ключ === id
-			className={btnStyles.button}
+			className={calculatorStyles.button}
 			onClick={() => {
 				setDisplayOutput(displayOutput + button)
 				setCalcInProgress(false)
@@ -39,8 +39,8 @@ export default function CalculatorComponent() {
 	const calcMap = {
 		"+": (a, b) => a + b,
 		"-": (a, b) => a - b,
-		"*": (a, b) => a * b,
-		"/": (a, b) => (a / b === Infinity ? "0" : a / b),
+		"*": (a, b) => Math.round(a * b),
+		"/": (a, b) => (a / b === Infinity ? "0" : Math.round(a / b)),
 	}
 
 	function calculate() {
@@ -56,13 +56,19 @@ export default function CalculatorComponent() {
 
 	return (
 		<div className={calculatorStyles.general}>
-			<div className={calcInProgress ? displayStyles.active : displayStyles.idle}>
+			<div
+				className={
+					calcInProgress
+						? calculatorStyles.display_active
+						: calculatorStyles.display_idle
+				}
+			>
 				{displayOutput}
 			</div>
 			<div className={calculatorStyles.buttons}>{buttonElems}</div>
-			<hr />
 			<div className={calculatorStyles.extraBtns}>
 				<button
+					className={calculatorStyles.button}
 					onClick={() => {
 						setDisplayOutput(calculate())
 						setCalcInProgress(true)
@@ -71,6 +77,7 @@ export default function CalculatorComponent() {
 					=
 				</button>
 				<button
+					className={calculatorStyles.button}
 					onClick={() => {
 						setDisplayOutput("")
 						setCalcInProgress(false)
