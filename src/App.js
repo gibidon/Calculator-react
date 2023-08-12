@@ -1,7 +1,7 @@
-import "./App.css"
-import CalculatorComponent from "./components/CalculatorComponent/CalculatorComponent.jsx"
+import "./App.css";
+import CalculatorComponent from "./components/CalculatorComponent/CalculatorComponent.jsx";
 const App = () => {
-	return <CalculatorComponent />
-}
+  return <CalculatorComponent />;
+};
 
-export default App
+export default App;

@@ -1,47 +1,47 @@
 .general {
-	position: absolute;
-	left: 33%;
-	top: 10%;
-	max-width: 250px;
-	box-shadow:
-		rgb(24 32 79 / 25%) 0px 40px 80px,
-		rgb(255 255 255 / 50%) 0px 0px 0px 0.5px inset;
+  position: absolute;
+  left: 33%;
+  top: 10%;
+  max-width: 250px;
+  box-shadow:
+    rgb(24 32 79 / 25%) 0px 40px 80px,
+    rgb(255 255 255 / 50%) 0px 0px 0px 0.5px inset;
 }
 
 .display {
-	padding-left: 10px;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	height: 50px;
-	background: white;
-	font-size: 1.5rem;
+  padding-left: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50px;
+  background: white;
+  font-size: 1.5rem;
 }
 .display_idle {
-	@extend .display;
+  @extend .display;
 }
 .display_active {
-	@extend .display;
-	color: orange;
+  @extend .display;
+  color: orange;
 }
 
 .buttons {
-	display: grid;
-	grid-template-columns: repeat(3, 50px);
-	background: inherit;
+  display: grid;
+  grid-template-columns: repeat(3, 50px);
+  background: inherit;
 }
 .button {
-	width: 50px;
-	height: 50px;
-	border: 1px solid white;
-	font-weight: 800;
-	font-size: medium;
+  width: 50px;
+  height: 50px;
+  border: 1px solid white;
+  font-weight: 800;
+  font-size: medium;
 }
 // .calcButton {
 // 	@extend .button;
 // 	background: linear-gradient(60deg, #ff0300, #ffa100);
 // }
 .button:hover {
-	background: lightgray;
-	cursor: pointer;
+  background: lightgray;
+  cursor: pointer;
 }
